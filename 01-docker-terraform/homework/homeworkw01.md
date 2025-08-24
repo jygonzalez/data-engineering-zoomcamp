@@ -17,9 +17,28 @@ Answer: `24.3.1`
 Answer: `db:5432`
 
 # Question 3
+[My Code](./q3_answer.sql)
 
+Answer: `104,802; 198,924; 109,603; 27,678; 35,189`
+
+# Question 4
+[My Code](./q4_answer.sql)
+
+Answer: `2019-10-31`
+
+# Question 5
+[My Code](./q5_answer.sql)
+
+Answer: `East Harlem North, East Harlem South, Morningside Heights`
+
+# Question 6
+[My Code](./q6_answer.sql)
+
+Answer: `JFK Airport`
 
 # Question 7
+[My Code](./q7)
+
 Answer: `terraform init, terraform apply -auto-approve, terraform destroy`
 
  
