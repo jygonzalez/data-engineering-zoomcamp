@@ -1,0 +1,33 @@
+id: execution_alert_flow
+namespace: dev.alerts
+
+variables:
+  executionId: "{{ trigger.executionId }}"
+  flowId: "{{ trigger.flowId }}"
+  flowRevision: "{{trigger.flowRevision}}"
+  namespace: "{{ trigger.namespace }}"
+  state: "{{ trigger.state }}"
+
+triggers:
+  - id: listen_for_completion
+    type: io.kestra.plugin.core.trigger.Flow
+    conditions:
+      - type: io.kestra.plugin.core.condition.ExecutionStatus
+        in:
+          - SUCCESS
+          - FAILED
+          - WARNING
+      - type: io.kestra.plugin.core.condition.ExecutionNamespace
+        namespace: zoomcamp
+    
+tasks:
+  - id: send_report
+    type: io.kestra.plugin.notifications.mail.MailExecution
+    to: jyael.glez@gmail.com
+    from: jd8332755@gmail.com
+    host: smtp.gmail.com
+    port: 465
+    username: "{{ secret('EMAIL_USERNAME') }}"
+    password: "{{ secret('EMAIL_PASSWORD') }}"
+    subject: "Kestra Flow {{ render(vars.executionId) }} in namespace {{ render(vars.namespace) }} - {{ render(vars.state) }}"
+    executionId: "{{ render(vars.executionId) }}"

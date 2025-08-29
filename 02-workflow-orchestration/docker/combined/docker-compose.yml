@@ -59,6 +59,8 @@ services:
             tmpDir:
               path: /tmp/kestra-wd/tmp
           url: http://localhost:8080/
+      SECRET_EMAIL_USERNAME: amQ4MzMyNzU1QGdtYWlsLmNvbQ==
+      SECRET_EMAIL_PASSWORD: bnRmayBvcWNxIGRncXAgYXR6ciA=
     ports:
       - "8080:8080"
       - "8081:8081"
